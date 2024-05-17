@@ -1,0 +1,1465 @@
+[gd_scene load_steps=34 format=3 uid="uid://cxqqxb7b2byop"]
+
+[ext_resource type="Texture2D" uid="uid://c5vteri2s1tip" path="res://Sprites/BottomPanel.png" id="2_v7d7d"]
+[ext_resource type="Texture2D" uid="uid://dyaucen5w8pt5" path="res://Sprites/DronePanel.png" id="3_1kc68"]
+[ext_resource type="Texture2D" uid="uid://bdcox07aqxbvf" path="res://Sprites/ButtonPanelSprite.png" id="3_1luos"]
+[ext_resource type="Texture2D" uid="uid://d070muhvsjmau" path="res://Sprites/Button.png" id="4_slqo2"]
+[ext_resource type="FontFile" uid="uid://d258b3p4nlxqk" path="res://Text_ttf/New Zelek.ttf" id="5_ghoet"]
+[ext_resource type="Script" path="res://Scenes/FlightMode.gd" id="5_x2ovj"]
+[ext_resource type="Texture2D" uid="uid://blod7dod57oe2" path="res://Sprites/propeller_Sprite.png" id="7_x6ghi"]
+[ext_resource type="Script" path="res://Scenes/Multiplayer.gd" id="10_4cgee"]
+[ext_resource type="Texture2D" uid="uid://cladegipp10oq" path="res://Sprites/JustFrame.png" id="10_pdel1"]
+[ext_resource type="Shader" path="res://Sprites/Gradient/Blur.gdshader" id="11_ic258"]
+[ext_resource type="Script" path="res://Scenes/Multiplayer2.gd" id="11_pjdfr"]
+[ext_resource type="Texture2D" uid="uid://rtmm2fhh5k2" path="res://Sprites/Texture1.png" id="12_41kxp"]
+[ext_resource type="Texture2D" uid="uid://dbynvhluspqaa" path="res://Sprites/UI Elements/White/1x/menu2.png" id="13_mcpdo"]
+[ext_resource type="Script" path="res://Scripts/UI/SinglePlayerGo.gd" id="13_rp3o1"]
+[ext_resource type="Texture2D" uid="uid://l13bg8kfedwa" path="res://Sprites/Some.png" id="13_tu46h"]
+[ext_resource type="Texture2D" uid="uid://vtgge7rc404k" path="res://Sprites/Button2.png" id="14_duh3g"]
+[ext_resource type="Texture2D" uid="uid://bh0h5d6me4n0o" path="res://Sprites/Button1.png" id="14_x5tks"]
+[ext_resource type="Texture2D" uid="uid://da5durd11e2ka" path="res://Sprites/graph.png" id="16_int8t"]
+[ext_resource type="Texture2D" uid="uid://cwvtu3p0tjd85" path="res://Sprites/Button2contur.png" id="16_up3lw"]
+[ext_resource type="Script" path="res://Scripts/UI/VisibleonPressSideMenu.gd" id="17_myvav"]
+[ext_resource type="FontFile" uid="uid://cclir5j0kewst" path="res://Text_ttf/EBENYA.ttf" id="17_v6pbv"]
+[ext_resource type="Script" path="res://Scripts/UI/VisibleonPressWelcomeSceenSideMenu.gd" id="18_6lt8m"]
+[ext_resource type="Texture2D" uid="uid://b3uxwqsisrtjo" path="res://Sprites/romb.png" id="18_u0vd0"]
+[ext_resource type="Script" path="res://Scripts/UI/VisibleonPressExitQuitSideMenu.gd" id="19_sk04w"]
+[ext_resource type="Script" path="res://Scripts/UI/WelcomeSceenGo.gd" id="20_aokw1"]
+[ext_resource type="Script" path="res://Scripts/UI/VisivleonPressNoMainSceen.gd" id="21_tmiy6"]
+[ext_resource type="Script" path="res://Scripts/UI/ExitonPress.gd" id="22_dpdwq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0txb"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ew2qd"]
+shader = ExtResource("11_ic258")
+shader_parameter/lod = 1.4
+
+[sub_resource type="Gradient" id="Gradient_wc0hj"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.454902, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gpqvw"]
+gradient = SubResource("Gradient_wc0hj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j81fj"]
+bg_color = Color(0.851769, 0.851769, 0.851769, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7iac"]
+bg_color = Color(1, 0.454902, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 1.667
+anchor_bottom = 1.667
+offset_right = -1280.64
+offset_bottom = -720.36
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.928154, 0.611422, 0, 1)
+
+[node name="BottomPanel" type="Sprite2D" parent="."]
+modulate = Color(1, 0.973592, 0.946556, 1)
+position = Vector2(960, 540)
+texture = ExtResource("2_v7d7d")
+
+[node name="ButtonPanelSprite" type="Sprite2D" parent="."]
+modulate = Color(0.162066, 0.162066, 0.162066, 1)
+position = Vector2(960, 540)
+texture = ExtResource("3_1luos")
+
+[node name="DronePanel" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_1kc68")
+
+[node name="TopButtonPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 1920.0
+offset_bottom = 86.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopButtonPanel"]
+layout_mode = 0
+offset_left = 156.0
+offset_top = -26.0
+offset_right = 1245.0
+offset_bottom = 64.0
+theme_override_constants/separation = -20
+
+[node name="FlightMode" type="TextureButton" parent="TopButtonPanel/HBoxContainer"]
+self_modulate = Color(1, 0.454902, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_slqo2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_x2ovj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopButtonPanel/HBoxContainer/FlightMode"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.5
+offset_top = -16.5
+offset_right = 106.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="TopButtonPanel/HBoxContainer/FlightMode/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "Режимы"
+
+[node name="TextureRect" type="TextureRect" parent="TopButtonPanel/HBoxContainer/FlightMode/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 9
+texture = ExtResource("7_x6ghi")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="FlightModePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 133.0
+offset_right = 1890.0
+offset_bottom = 918.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FlightModePanel"]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 99.0
+offset_right = 1702.0
+offset_bottom = 726.0
+theme_override_constants/separation = 210
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FlightModePanel/HBoxContainer"]
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 45
+
+[node name="Race" type="TextureButton" parent="FlightModePanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_rp3o1")
+
+[node name="Label" type="Label" parent="FlightModePanel/HBoxContainer/VBoxContainer/Race"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Гонка"
+
+[node name="Test" type="TextureButton" parent="FlightModePanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_rp3o1")
+
+[node name="Label" type="Label" parent="FlightModePanel/HBoxContainer/VBoxContainer/Test"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -21.5
+offset_right = 64.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Тренировка"
+
+[node name="MapEditor" type="TextureButton" parent="FlightModePanel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="FlightModePanel/HBoxContainer/VBoxContainer/MapEditor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Редактор Карт"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="FlightModePanel/HBoxContainer"]
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 45
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FlightModePanel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 55
+
+[node name="Multiplayer" type="TextureButton" parent="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_4cgee")
+
+[node name="Label" type="Label" parent="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer/Multiplayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Мультиплеер"
+
+[node name="Multiplayer2" type="TextureButton" parent="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_pjdfr")
+
+[node name="Label" type="Label" parent="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer/Multiplayer2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Мультиплеер 2"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="FlightModePanel/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="Event" type="TextureButton" parent="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer2/Event"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Мероприятие"
+
+[node name="SetingPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 133.0
+offset_right = 1890.0
+offset_bottom = 918.0
+
+[node name="MarginContainer" type="MarginContainer" parent="SetingPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -635.5
+offset_top = -296.0
+offset_right = 635.5
+offset_bottom = 296.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SetingPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SetingPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 80
+
+[node name="Multiplayer" type="TextureButton" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer/Multiplayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Управление"
+
+[node name="Multiplayer2" type="TextureButton" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer/Multiplayer2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Графика"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SetingPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 80
+
+[node name="Multiplayer" type="TextureButton" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer2/Multiplayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Настройки дрона"
+
+[node name="Multiplayer2" type="TextureButton" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(415, 182)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_pdel1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer2/Multiplayer2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -17.5
+offset_right = 60.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 34
+text = "Аудио"
+
+[node name="CustomPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 133.0
+offset_right = 1890.0
+offset_bottom = 918.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CustomPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -808.5
+offset_top = -329.5
+offset_right = 808.5
+offset_bottom = 329.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CustomPanel/MarginContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="ColorRect" type="Panel" parent="CustomPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(405, 264)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0txb")
+
+[node name="Label" type="Label" parent="CustomPanel/MarginContainer/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.5
+offset_right = 161.5
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+text = "Камера"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CustomPanel/MarginContainer/HBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 74.0
+offset_right = 460.0
+offset_bottom = 249.0
+theme_override_constants/separation = 55
+
+[node name="HSlider" type="HSlider" parent="CustomPanel/MarginContainer/HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+value = 20.0
+
+[node name="Label2" type="Label" parent="CustomPanel/MarginContainer/HBoxContainer/ColorRect/VBoxContainer/HSlider"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.5
+offset_top = -28.0
+offset_right = 154.5
+offset_bottom = 12.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+text = "Угол"
+vertical_alignment = 1
+
+[node name="HSlider2" type="HSlider" parent="CustomPanel/MarginContainer/HBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+value = 20.0
+
+[node name="Label2" type="Label" parent="CustomPanel/MarginContainer/HBoxContainer/ColorRect/VBoxContainer/HSlider2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.5
+offset_top = -28.0
+offset_right = 154.5
+offset_bottom = 12.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+text = "Угол обзора"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CustomPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="CameraButton" type="TextureButton" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer"]
+self_modulate = Color(0, 0, 0, 0.588235)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("14_duh3g")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer/CameraButton"]
+self_modulate = Color(1, 0.454902, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_up3lw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer/CameraButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+text = "Камера"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BatteryButton" type="TextureButton" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer"]
+self_modulate = Color(0, 0, 0, 0.588235)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("14_duh3g")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer/BatteryButton"]
+self_modulate = Color(1, 0.454902, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_up3lw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer/BatteryButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+text = "Батарея"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BodyButton" type="TextureButton" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer"]
+self_modulate = Color(0, 0, 0, 0.588235)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("14_duh3g")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer/BodyButton"]
+self_modulate = Color(1, 0.454902, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_up3lw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CustomPanel/MarginContainer/HBoxContainer/HBoxContainer/BodyButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_ghoet")
+text = "Корпус"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="CustomPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(405, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SideMenu" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="SideMenu"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="ColorRect" parent="SideMenu/Panel"]
+material = SubResource("ShaderMaterial_ew2qd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shadow" type="ColorRect" parent="SideMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.470588)
+
+[node name="Texture" type="TextureRect" parent="SideMenu/Panel"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_41kxp")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Texture2" type="TextureRect" parent="SideMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.144
+anchor_bottom = 0.965
+offset_top = -36.0
+offset_right = 117.52
+offset_bottom = 37.7999
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_tu46h")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SideMenu/Panel"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 147.0
+offset_right = 669.0
+offset_bottom = 759.0
+
+[node name="1" type="TextureButton" parent="SideMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("14_x5tks")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="SideMenu/Panel/VBoxContainer/1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "1"
+horizontal_alignment = 2
+
+[node name="2" type="TextureButton" parent="SideMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("14_x5tks")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="SideMenu/Panel/VBoxContainer/2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "2"
+horizontal_alignment = 2
+
+[node name="FAQ" type="TextureButton" parent="SideMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("14_x5tks")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="SideMenu/Panel/VBoxContainer/FAQ"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "FAQ"
+horizontal_alignment = 2
+
+[node name="WelcomeScreen" type="TextureButton" parent="SideMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("14_x5tks")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("18_6lt8m")
+
+[node name="Label" type="Label" parent="SideMenu/Panel/VBoxContainer/WelcomeScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "Главный экран"
+horizontal_alignment = 2
+
+[node name="Exit" type="TextureButton" parent="SideMenu/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("14_x5tks")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("19_sk04w")
+
+[node name="Label" type="Label" parent="SideMenu/Panel/VBoxContainer/Exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "Выход"
+horizontal_alignment = 2
+
+[node name="Icon" type="TextureButton" parent="SideMenu"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 36.0
+offset_right = 78.0
+offset_bottom = 90.0
+texture_normal = ExtResource("13_mcpdo")
+ignore_texture_size = true
+script = ExtResource("17_myvav")
+
+[node name="MainSceenQuit" type="Panel" parent="SideMenu"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shadow" type="ColorRect" parent="SideMenu/MainSceenQuit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.470588)
+
+[node name="MainSceenQuit" type="TextureRect" parent="SideMenu/MainSceenQuit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -151.5
+offset_right = 150.0
+offset_bottom = 151.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_pdel1")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SideMenu/MainSceenQuit/MainSceenQuit"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_left = 44.0
+offset_top = 21.0
+offset_right = 261.0
+offset_bottom = 262.0
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="SideMenu/MainSceenQuit/MainSceenQuit/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+size_flags_stretch_ratio = 2.4
+theme_override_font_sizes/font_size = 26
+text = "Выйти на главный экран?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="SideMenu/MainSceenQuit/MainSceenQuit/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+texture_normal = SubResource("GradientTexture2D_gpqvw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("20_aokw1")
+
+[node name="Label" type="Label" parent="SideMenu/MainSceenQuit/MainSceenQuit/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "Да"
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="SideMenu/MainSceenQuit/MainSceenQuit/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+texture_normal = SubResource("GradientTexture2D_gpqvw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("21_tmiy6")
+
+[node name="Label" type="Label" parent="SideMenu/MainSceenQuit/MainSceenQuit/VBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "Нет"
+horizontal_alignment = 1
+
+[node name="ExitQuit" type="Panel" parent="SideMenu"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shadow" type="ColorRect" parent="SideMenu/ExitQuit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.470588)
+
+[node name="MainSceenQuit" type="TextureRect" parent="SideMenu/ExitQuit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -151.5
+offset_right = 150.0
+offset_bottom = 151.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_pdel1")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SideMenu/ExitQuit/MainSceenQuit"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_left = 44.0
+offset_top = 21.0
+offset_right = 261.0
+offset_bottom = 262.0
+theme_override_constants/separation = 35
+
+[node name="Label" type="Label" parent="SideMenu/ExitQuit/MainSceenQuit/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+size_flags_stretch_ratio = 2.4
+theme_override_font_sizes/font_size = 26
+text = "Выйти?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureButton" parent="SideMenu/ExitQuit/MainSceenQuit/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+texture_normal = SubResource("GradientTexture2D_gpqvw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("22_dpdwq")
+
+[node name="Label" type="Label" parent="SideMenu/ExitQuit/MainSceenQuit/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "Да"
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="SideMenu/ExitQuit/MainSceenQuit/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+texture_normal = SubResource("GradientTexture2D_gpqvw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("21_tmiy6")
+
+[node name="Label" type="Label" parent="SideMenu/ExitQuit/MainSceenQuit/VBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -16.5
+offset_right = 96.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ghoet")
+theme_override_font_sizes/font_size = 25
+text = "Нет"
+horizontal_alignment = 1
+
+[node name="QuadSettingUI" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -501.0
+offset_top = -325.5
+offset_right = 501.0
+offset_bottom = 325.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="Panel" parent="QuadSettingUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j81fj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuadSettingUI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 49.0
+offset_right = 744.0
+offset_bottom = 349.0
+theme_override_constants/separation = 20
+
+[node name="Graph" type="TextureRect" parent="QuadSettingUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("16_int8t")
+
+[node name="Graph2" type="TextureRect" parent="QuadSettingUI/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("16_int8t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadSettingUI"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 33.0
+offset_right = 981.0
+offset_bottom = 636.0
+theme_override_constants/separation = 8
+
+[node name="ColorRect" type="ColorRect" parent="QuadSettingUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Крен"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = 274.0
+offset_bottom = 89.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "P"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "I"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "D"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ColorRect2" type="ColorRect" parent="QuadSettingUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Крен"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = 274.0
+offset_bottom = 89.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "P"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "I"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "D"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect2/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ColorRect3" type="ColorRect" parent="QuadSettingUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Крен"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect3"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = 274.0
+offset_bottom = 89.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "P"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "I"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_v6pbv")
+theme_override_font_sizes/font_size = 26
+text = "D"
+
+[node name="TextureProgressBar" type="HSlider" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_e7iac")
+value = 20.0
+
+[node name="TextureRect" type="TextureRect" parent="QuadSettingUI/VBoxContainer/ColorRect3/VBoxContainer/HBoxContainer3"]
+self_modulate = Color(1, 0.454902, 0, 1)
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("18_u0vd0")
+expand_mode = 3
+stretch_mode = 4
+
+[connection signal="pressed" from="TopButtonPanel/HBoxContainer/FlightMode" to="TopButtonPanel/HBoxContainer/FlightMode" method="_on_pressed"]
+[connection signal="pressed" from="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer/Multiplayer" to="TopButtonPanel/HBoxContainer/FlightMode" method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="FlightModePanel/HBoxContainer/VBoxContainer2/HBoxContainer/Multiplayer2" to="TopButtonPanel/HBoxContainer/FlightMode" method="_on_multiplayer_2_pressed"]
+[connection signal="pressed" from="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer2/Multiplayer" to="TopButtonPanel/HBoxContainer/FlightMode" method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="SetingPanel/MarginContainer/HBoxContainer/VBoxContainer2/Multiplayer2" to="TopButtonPanel/HBoxContainer/FlightMode" method="_on_multiplayer_2_pressed"]

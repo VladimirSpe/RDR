@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2474ssew8x23"]
+
+[ext_resource type="Texture2D" uid="uid://drpd0atu0b1ip" path="res://Sprites/BG1.jpg" id="1_xmy7y"]
+[ext_resource type="Texture2D" uid="uid://bovfjla5mwphs" path="res://Sprites/RegistrationPanel.png" id="2_f7j1n"]
+[ext_resource type="Texture2D" uid="uid://dl2hjumyq5y8q" path="res://Sprites/RegistrationPanelContur.png" id="3_hl0nr"]
+[ext_resource type="FontFile" uid="uid://cclir5j0kewst" path="res://Text_ttf/EBENYA.ttf" id="4_b1hud"]
+[ext_resource type="Script" path="res://Scripts/UI/MenuGo.gd" id="4_ky174"]
+[ext_resource type="FontFile" uid="uid://d258b3p4nlxqk" path="res://Text_ttf/New Zelek.ttf" id="5_gvp7f"]
+
+[sub_resource type="Gradient" id="Gradient_4eqd2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.223103, 0.223103, 0.223103, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lkgrv"]
+gradient = SubResource("Gradient_4eqd2")
+width = 384
+
+[node name="RegistrateSceen" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1919.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1917.0
+offset_bottom = 1080.0
+
+[node name="Bg1" type="Sprite2D" parent="Control"]
+position = Vector2(748, 430)
+texture = ExtResource("1_xmy7y")
+
+[node name="RegistrationPanel" type="Sprite2D" parent="Control"]
+modulate = Color(0.521569, 0.466667, 0.564706, 0.588235)
+position = Vector2(404, 531)
+texture = ExtResource("2_f7j1n")
+
+[node name="RegistrationPanelContur" type="Sprite2D" parent="Control"]
+position = Vector2(404, 530)
+texture = ExtResource("3_hl0nr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 561.0
+offset_right = 593.0
+offset_bottom = 784.0
+theme_override_constants/separation = 20
+
+[node name="ColorRect4" type="TextureButton" parent="Control/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("GradientTexture2D_lkgrv")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_ky174")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_gvp7f")
+theme_override_font_sizes/font_size = 25
+text = "Войти"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect5" type="TextureButton" parent="Control/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("GradientTexture2D_lkgrv")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_ky174")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_gvp7f")
+theme_override_font_sizes/font_size = 25
+text = "Гость"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 170.0
+offset_right = 576.0
+offset_bottom = 210.0
+theme_override_fonts/font = ExtResource("4_b1hud")
+theme_override_font_sizes/font_size = 40
+text = "Авторизация"

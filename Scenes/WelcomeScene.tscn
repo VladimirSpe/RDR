@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://crr3tcde638w6"]
+
+[ext_resource type="Script" path="res://Scripts/UI/WelcomeSceneW.gd" id="1_db6g7"]
+[ext_resource type="Texture2D" uid="uid://b7d3opqcifvyh" path="res://Sprites/RDR_Logo.png" id="1_xmd82"]
+[ext_resource type="FontFile" uid="uid://cclir5j0kewst" path="res://Text_ttf/EBENYA.ttf" id="2_n0pd2"]
+
+[node name="WelcomeScene" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1919.0
+offset_bottom = 1078.0
+script = ExtResource("1_db6g7")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1076.0
+color = Color(0, 0, 0, 1)
+
+[node name="RdrLogo" type="Sprite2D" parent="Control/ColorRect"]
+position = Vector2(960, 390)
+scale = Vector2(0.301785, 0.301785)
+texture = ExtResource("1_xmd82")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 940.0
+offset_right = 1260.0
+offset_bottom = 1040.0
+theme_override_fonts/normal_font = ExtResource("2_n0pd2")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[center]Нажмите W"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 840.0
+offset_right = 1260.0
+offset_bottom = 940.0
+theme_override_fonts/normal_font = ExtResource("2_n0pd2")
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[center]Загрузка..."

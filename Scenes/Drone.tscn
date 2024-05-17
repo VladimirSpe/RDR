@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://cavk7nhyatfab"]
+
+[ext_resource type="Script" path="res://Scripts/Drone/Player.gd" id="1_unmrr"]
+[ext_resource type="Resource" uid="uid://dfl0l1jh6d8hf" path="res://Scripts/Drone/run.tres" id="2_chq41"]
+[ext_resource type="Resource" uid="uid://cp4peh7fu6n2c" path="res://Scripts/Drone/sprint.tres" id="3_xifde"]
+[ext_resource type="Resource" uid="uid://okarlipj5xex" path="res://Scripts/Drone/stand.tres" id="4_pcjgo"]
+[ext_resource type="Resource" uid="uid://b1xlv6tgv8ouo" path="res://Scripts/Drone/walk.tres" id="5_4qhtp"]
+[ext_resource type="PackedScene" uid="uid://b767eewhp5wd7" path="res://Drone/Drone_red.FBX" id="6_vhnjo"]
+[ext_resource type="Script" path="res://Scripts/Drone/MovementController.gd" id="7_ond11"]
+[ext_resource type="Script" path="res://Scripts/Drone/Camera.gd" id="8_vqt01"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_40uvf"]
+height = 1.52029
+radius = 5.65808
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yhfak"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+transform = Transform3D(-0.1, 0, 1.50996e-08, 0, 0.1, 0, -1.50996e-08, 0, -0.1, -13.4633, 6.0756, -8.84923)
+script = ExtResource("1_unmrr")
+movement_states = {
+"Run": ExtResource("2_chq41"),
+"Sprint": ExtResource("3_xifde"),
+"Stand": ExtResource("4_pcjgo"),
+"Walk": ExtResource("5_4qhtp")
+}
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="Root Scene" parent="Visuals" instance=ExtResource("6_vhnjo")]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193208, 0.402817, 0.16327)
+shape = SubResource("CylinderShape3D_40uvf")
+
+[node name="MovementController" type="Node" parent="."]
+script = ExtResource("7_ond11")
+
+[node name="CamRoot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0.142921, 0)
+script = ExtResource("8_vqt01")
+
+[node name="CamYaw" type="Node3D" parent="CamRoot"]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -0.000728607, 0.00208282, 0.000238737)
+
+[node name="CamPitch" type="Node3D" parent="CamRoot/CamYaw"]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamRoot/CamYaw/CamPitch"]
+transform = Transform3D(1, 0, -4.26326e-14, 0, 1, 0, 4.26326e-14, 0, 1, 0, 1.19749, 0)
+spring_length = 30.0
+
+[node name="Camera3D" type="Camera3D" parent="CamRoot/CamYaw/CamPitch/SpringArm3D"]
+transform = Transform3D(10, -2.55617e-08, -2.17824e-10, 2.55617e-08, 9.99857, 0.169288, -2.14868e-10, -0.169288, 9.99857, 0, 10.5275, 27.4906)
+current = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_yhfak")
+
+[connection signal="set_movement_direction" from="." to="MovementController" method="_on_set_movement_direction"]
+[connection signal="set_movement_state" from="." to="MovementController" method="_on_movement_state"]
+[connection signal="set_movement_state" from="." to="CamRoot" method="_on_set_movement_state"]
+[connection signal="set_cam_rotation" from="CamRoot" to="MovementController" method="_on_set_cam_rotation"]

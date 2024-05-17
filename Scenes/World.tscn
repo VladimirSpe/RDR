@@ -1,0 +1,215 @@
+[gd_scene load_steps=12 format=3 uid="uid://drd0h4nidre88"]
+
+[ext_resource type="Script" path="res://Scenes/World.gd" id="1_6uixt"]
+[ext_resource type="Texture2D" uid="uid://cm4h1ljahfxn7" path="res://textures/ganges_river_pebbles_diff_4k.jpg" id="1_jcdxx"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenuEsc.gd" id="3_xm1eg"]
+[ext_resource type="Script" path="res://Scripts/UI/MenuGo.gd" id="4_4dexw"]
+[ext_resource type="Texture2D" uid="uid://dvdgf3gcqtf1l" path="res://Sprites/UI Elements/White/2x/pause.png" id="4_j0f6p"]
+[ext_resource type="FontFile" uid="uid://d258b3p4nlxqk" path="res://Text_ttf/New Zelek.ttf" id="5_wl4r2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ogfgd"]
+size = Vector3(1, 0.978125, 0.99231)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gq67j"]
+albedo_texture = ExtResource("1_jcdxx")
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_146j5"]
+material = SubResource("StandardMaterial3D_gq67j")
+
+[sub_resource type="Gradient" id="Gradient_g84fa"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.47451, 0.00784314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_brv0d"]
+gradient = SubResource("Gradient_g84fa")
+
+[node name="World" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+script = ExtResource("1_6uixt")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(4.09153, 0, 0, 0, 1, 0, 0, 0, 7.87431, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(-60.051, 0, 0, 0, 2, 0, 0, 0, 60.4511, 0, 3.45425, 0.00368964)
+shape = SubResource("BoxShape3D_ogfgd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(60, 0, 0, 0, 2, 0, 0, 0, 60, 0, 3.43384, 0)
+mesh = SubResource("BoxMesh_146j5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_xm1eg")
+
+[node name="Panel" type="Panel" parent="Control/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/Panel"]
+layout_mode = 0
+offset_left = 1496.0
+offset_top = 492.0
+offset_right = 1843.0
+offset_bottom = 920.0
+theme_override_constants/separation = 40
+
+[node name="TextureButton" type="TextureButton" parent="Control/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("GradientTexture1D_brv0d")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PID"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="Control/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("GradientTexture1D_brv0d")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Музыка"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="Control/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("GradientTexture1D_brv0d")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Настройки Дрона"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton4" type="TextureButton" parent="Control/Panel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("GradientTexture1D_brv0d")
+stretch_mode = 0
+script = ExtResource("4_4dexw")
+
+[node name="Label" type="Label" parent="Control/Panel/Panel/VBoxContainer/TextureButton4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Меню"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause" type="TextureRect" parent="Control/Panel/Panel"]
+self_modulate = Color(1, 0.47451, 0.00784314, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -128.5
+offset_right = 94.0
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j0f6p")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Control/Panel/Panel"]
+self_modulate = Color(1, 0.47451, 0.00784314, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -303.0
+offset_right = 304.0
+offset_bottom = 245.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_wl4r2")
+theme_override_font_sizes/font_size = 161
+text = "Пауза"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/Drone.tscn")
+spawn_path = NodePath("..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, 0.258819, 0, 1.13133e-08, -4.2222e-08, 1, 0.258819, -0.965926, -4.37114e-08, 4, 65, 173)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HostButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
