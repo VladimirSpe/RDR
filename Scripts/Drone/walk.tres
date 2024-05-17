@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MovementState" load_steps=2 format=3 uid="uid://b1xlv6tgv8ouo"]
+
+[ext_resource type="Script" path="res://Scripts/Drone/movement_state.gd" id="1_0jo2t"]
+
+[resource]
+script = ExtResource("1_0jo2t")
+id = 1
+movement_speed = 10.0
+acceleration = 10.0
+camera_fov = 72.5
+animation_speed = 1.15
